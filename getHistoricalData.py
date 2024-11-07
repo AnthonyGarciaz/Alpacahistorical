@@ -16,11 +16,16 @@ api = tradeapi.REST(api_key, api_secret, base_url='https://paper-api.alpaca.mark
 # Specify the ticker, timeframe, and date range
 symbol = 'TSLA'
 timeframe = TimeFrame.Day  # Daily data
-start_date = '2015-01-01'  # Adjusted format
-end_date = '2023-12-31'    # Adjusted format
+start_date = '2015-01-01'
+end_date = '2023-12-31'
 
 # Get the historical data
 data = api.get_bars(symbol, timeframe, start=start_date, end=end_date).df
 
-# Display the data
-print(data.head())
+# Display the entire dataset
+print("Data:\n", data)
+
+
+# Show basic statistics of the numerical data
+print("\nData Description:")
+print(data.describe())
